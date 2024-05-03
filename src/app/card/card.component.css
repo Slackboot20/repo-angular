@@ -1,0 +1,20 @@
+section {
+    text-align: center;
+    background-image: linear-gradient(to top, white 0%, gray 100%);
+    padding: 5 rem;
+}
+
+span{
+    color: brown;
+}
+
+section .nombre {
+    color: red;
+    font-size: larger;
+    padding: 1%;
+}
+
+button:hover {
+    background-color: aqua;
+    color: black;
+}
