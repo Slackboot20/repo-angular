@@ -12,4 +12,7 @@ export class CardComponent {
   @Input()
   people?: any;
 
+  delete(people: any){
+    console.log(people)
+  }
 }
