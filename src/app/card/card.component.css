@@ -18,3 +18,7 @@ button:hover {
     background-color: aqua;
     color: black;
 }
+
+button {
+    margin-right: 1%;
+}
