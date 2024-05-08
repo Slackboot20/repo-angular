@@ -1,4 +1,7 @@
-<div *ngFor = "let people of people">
-    <app-card [people] = "people">
+<label for="name">name: </label>
+<input type="text" id="name" [FormControl] = "name">
+
+<div *ngFor = "let card of Info">
+    <app-card [Character] = "card">
     </app-card>
 </div>
