@@ -6,11 +6,16 @@ const URL = "https://rickandmortyapi.com/api/character"
 @Injectable({
   providedIn: 'root'
 })
+
 export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  getAllCharacters(){
-    return this.http.get(URL)
+  getCharacters(){
+    return this.http.get(URL);
+  }
+
+  createCharacter(newCharacter: any){
+    return this.http.post("https://api.escuelajs.co/api/v1/users", newCharacter)
   }
 }

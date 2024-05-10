@@ -1,7 +1,18 @@
 <label for="name">name: </label>
-<input type="text" id="name" [FormControl] = "name">
+<input type="text" id="name" [formControl] = "name">
 
-<div *ngFor = "let card of Info">
-    <app-card [Character] = "card">
+<label for="name">image: </label>
+<input type="text" id="name" [formControl] = "name">
+
+<label for="name">email: </label>
+<input type="text" id="name" [formControl] = "name">
+
+<label for="name">password: </label>
+<input type="text" id="name" [formControl] = "name">
+
+<button (click)="saveChanges()">Guardar</button>
+
+<div *ngFor = "let people of Info">
+    <app-card [people] = "people">
     </app-card>
 </div>

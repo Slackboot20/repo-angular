@@ -14,10 +14,12 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 })
 
 export class AppComponent {
-  title = 'my-app';
-  people = ["camila", "alejandra"]
+people: any;
+  title(title: any) {
+    throw new Error('method not implemented');
+  }
 
-  constructor (private api:ApiService){}
+  constructor(private apiService:ApiService){}
 
   Info: any;
 
@@ -27,18 +29,19 @@ export class AppComponent {
   password = new FormControl('');
 
   ngOnInit(){
-    this.api.getAllCharacters().subscribe((characters:any) => {
-      console.log(characters);
-      this.people = characters.results;
+    this.apiService.getCharacters().subscribe((data:any) => {
+      this.Info = data.results;
     })
   }
 
-  onSummit (){
+  saveChanges() {
+    console.log('saving changes: ', this.name, this.image, this.email,this.password)
+
     const NewCharacter = {
-      name: this.name.value,
-      imagen: this.image.value,
-      email: this.email.value,
-      password: this.password.value
+      "name": this.name.value,
+      "imagen": this.image.value,
+      "email": this.email.value,
+      "password": this.password.value
     }
   }
 }
