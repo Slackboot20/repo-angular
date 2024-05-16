@@ -20,6 +20,7 @@ export class ApiService {
   }
 
   editCharacter(){
+    return this.http
     console.log('actualizado correctamente');
   }
 
