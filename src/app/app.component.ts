@@ -16,32 +16,72 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 export class AppComponent {
 people: any;
   title(title: any) {
-    throw new Error('method not implemented');
+
   }
 
   constructor(private apiService:ApiService){}
 
   Info: any;
 
-  name = new FormControl('');
+  id = new FormControl('');
   image = new FormControl('');
-  email = new FormControl('');
-  password = new FormControl('');
+  price = new FormControl('');
+  description = new FormControl('');
+  titulo = new FormControl('');
+
+  saveChanges() {
+    console.log('cambios guardados con exito: ', this.id, this.image, this.price, this.description, this.titulo)
+
+    const NewCharacter = {
+      "id": this.id.value,
+      "price": this.price.value,
+      "description": this.description.value,
+      "image": this.image.value,
+      "titulo": this.titulo.value
+    }
+  }
 
   ngOnInit(){
     this.apiService.getCharacters().subscribe((data:any) => {
-      this.Info = data.results;
+      data.map((item: any) => {
+
+
+        let imageStringify = JSON.stringify(item.images); // convertimos el array de imagenes a string
+        
+        
+        let imageNoGarbage = imageStringify
+        
+        
+        .substring(2, imageStringify.length - 2)
+        
+        
+        .replaceAll('\\', ' ')
+        
+        
+        .replaceAll('""', '"')
+        
+        
+        .replaceAll('" "', '"')
+        
+        
+        .replaceAll(' ', '');
+        
+        
+        try {
+        
+        
+        item.images = JSON.parse(imageNoGarbage);
+        
+        
+        item.imagesActual = item.images[0];
+        
+        
+        } catch (e) {}
+        
+        
+        });
+      this.Info = data;
+
     })
-  }
-
-  saveChanges() {
-    console.log('saving changes: ', this.name, this.image, this.email,this.password)
-
-    const NewCharacter = {
-      "name": this.name.value,
-      "imagen": this.image.value,
-      "email": this.email.value,
-      "password": this.password.value
-    }
   }
 }

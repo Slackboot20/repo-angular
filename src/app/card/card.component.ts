@@ -1,11 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { ApiService } from '../service/api.service';
 import { error } from 'console';
+import { response } from 'express';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [],
+  imports: [NgIf],
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
 })
@@ -14,20 +16,19 @@ export class CardComponent {
 
   @Input()
   people: any;
-  ApiService: any;
 
   delete(people: any) {
     console.log(this.people)
 
-    this.ApiService.deletePeople(this.people.id)
-    .subscribe((response: any) => { console.log(response);
-
-    }, (error: any) => {
-      console.error(error);
-    });
+    this.apiService.editCharacter()
+    // .subscribe((response: any) => { console.log('personaje eliminado con exito: ', response);
+    // });
   }
 
-  onEditClick(){
-    
+  Edit(name: string){
+    console.log(this.people)
+    this.apiService.editCharacter()
+    // .subscribe((response: any) => { console.log(response);
+    // });
   }
 }
