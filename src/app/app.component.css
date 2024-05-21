@@ -1,0 +1,21 @@
+section{
+    padding: 1%;
+    background-color: gray;
+}
+
+section label {
+    padding: 1%;
+}
+
+.component-form {
+    padding: 1%;
+    text-align: center;
+    background-color: aliceblue;
+    color: red;
+    width: 500px;
+    margin: auto;
+}
+
+button:hover {
+    background-color: yellow;
+}

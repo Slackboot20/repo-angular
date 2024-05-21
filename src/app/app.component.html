@@ -1,17 +1,24 @@
-<label for="title">title: </label>
-<input type="text" id="id" [formControl] = "title">
-
-<label for="name">image: </label>
-<input type="text" id="id" [formControl] = "images">
-
-<label for="name">description: </label>
-<input type="text" id="id" [formControl] = "description">
-
-<label for="name">price: </label>
-<input type="text" id="id" [formControl] = "price">
-
-<button (click)="onSummit()">Guardar</button>
-
+<section>
+<div class="component-form">
+    <label for="title">Title: </label>
+    <input type="text" id="id" [formControl] = "title">
+</div>
+<div class="component-form">
+    <label for="name">Image: </label>
+    <input type="text" id="id" [formControl] = "images">
+</div>
+<div class="component-form">
+    <label for="name">Description: </label>
+    <input type="text" id="id" [formControl] = "description">
+</div>
+<div class="component-form">
+    <label for="name">Price: </label>
+    <input type="text" id="id" [formControl] = "price">
+</div>
+<div class="component-form">
+    <button (click)="onSummit()">Guardar</button>
+</div>
+</section>
 <div *ngFor = "let product of products">
     <app-card [Product] = "product">
     </app-card>
