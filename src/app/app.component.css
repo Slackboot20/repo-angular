@@ -16,6 +16,20 @@ section label {
     margin: auto;
 }
 
+.component-form-h1 {
+    padding: 1%;
+    text-align: center;
+    background-color: aliceblue;
+    color: brown;
+    width: 500px;
+    margin: auto;
+}
+
 button:hover {
     background-color: yellow;
+}
+
+h1 {
+    text-align: center;
+    color: brown;
 }

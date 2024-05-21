@@ -1,6 +1,6 @@
 section {
     text-align: center;
-    background-image: linear-gradient(to top, white 0%, gray 100%);
+    /*background-image: linear-gradient(to top, white 0%, gray 100%);*/
     padding: 1%;
 }
 
@@ -21,4 +21,9 @@ button:hover {
 
 button {
     margin-right: 1%;
+}
+
+img {
+    height: 500px;
+    width: 500px;
 }

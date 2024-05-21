@@ -1,4 +1,5 @@
 <section>
+<h1 class="component-form-h1">Registro de nuevos productos</h1>
 <div class="component-form">
     <label for="title">Title: </label>
     <input type="text" id="id" [formControl] = "title">
@@ -19,6 +20,11 @@
     <button (click)="onSummit()">Guardar</button>
 </div>
 </section>
+
+<section>
+    <h1>Productos</h1>
+</section>
+
 <div *ngFor = "let product of products">
     <app-card [Product] = "product">
     </app-card>
