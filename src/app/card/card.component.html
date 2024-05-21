@@ -1,10 +1,10 @@
 <section>
-    <p class="nombre">{{people.id}}</p>
-    <img src="{{people.images[0]}}" alt="">
-    <p><span>Species: </span>{{people.title}}</p>
-    <p><span>Status: </span>{{people.price}}</p>
-    <p><span>Gender: </span>{{people.description}}</p>
-    <button (click)="delete(people)">Eliminar</button>
-    <button (click)="Edit(people)">Editar</button>
+    <p class="nombre">{{Product.title}}</p>
+    <img src="{{Product.images[0]}}" alt="">
+    <p><span>description: </span>{{Product.description}}</p>
+    <p><span>price: </span>{{Product.price}}</p>
+    <p>{{Product.categoryid}}</p>
+    <button (click)="delete()">Eliminar</button>
+    <button (click)="Edit()">Editar</button>
 </section>
 

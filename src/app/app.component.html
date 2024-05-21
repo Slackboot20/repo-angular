@@ -1,21 +1,18 @@
-<label for="name">name: </label>
-<input type="text" id="id" [formControl] = "id">
+<label for="title">title: </label>
+<input type="text" id="id" [formControl] = "title">
 
 <label for="name">image: </label>
-<input type="text" id="id" [formControl] = "id">
+<input type="text" id="id" [formControl] = "images">
 
-<label for="name">email: </label>
-<input type="text" id="id" [formControl] = "id">
+<label for="name">description: </label>
+<input type="text" id="id" [formControl] = "description">
 
-<label for="name">password: </label>
-<input type="text" id="id" [formControl] = "id">
+<label for="name">price: </label>
+<input type="text" id="id" [formControl] = "price">
 
-<label for="name">titulo: </label>
-<input type="text" id="id" [formControl] = "id">
+<button (click)="onSummit()">Guardar</button>
 
-<button (click)="saveChanges()">Guardar</button>
-
-<div *ngFor = "let people of Info">
-    <app-card [people] = "people">
+<div *ngFor = "let product of products">
+    <app-card [Product] = "product">
     </app-card>
 </div>

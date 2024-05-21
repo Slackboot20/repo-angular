@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CardComponent } from './card/card.component';
 import { CommonModule, NgFor, NgForOf } from '@angular/common';
@@ -13,75 +13,53 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './app.component.css'
 })
 
-export class AppComponent {
-people: any;
-  title(title: any) {
+export class AppComponent implements OnInit{
+  apiUrl = 'https://api.escuelajs.co/api/v1/products';
+  products: any[] = [];
+  tittle = 'repo-angular';
+  product: any;
 
-  }
+  title = new FormControl('');
+  images = new FormControl('');
+  price = new FormControl('');
+  description = new FormControl('');
+  categoryid = new FormControl('');
+//people: any;
+  //title(title: any) {
+  //}
 
   constructor(private apiService:ApiService){}
 
-  Info: any;
-
-  id = new FormControl('');
-  image = new FormControl('');
-  price = new FormControl('');
-  description = new FormControl('');
-  titulo = new FormControl('');
-
-  saveChanges() {
-    console.log('cambios guardados con exito: ', this.id, this.image, this.price, this.description, this.titulo)
-
-    const NewCharacter = {
-      "id": this.id.value,
+  onSummit() {
+    const NewProduct = {
+      "title": this.title.value,
       "price": this.price.value,
       "description": this.description.value,
-      "image": this.image.value,
-      "titulo": this.titulo.value
+      "image": ['https://placeimg.com/640/480/any'],
+      "categoryid": 1
     }
+    this.apiService.createCharacter(this.product).subscribe((data: any) => {
+      console.log(data);
+      this.product.push(data);
+    })
   }
 
-  ngOnInit(){
+  ngOnInit(): void{
     this.apiService.getCharacters().subscribe((data:any) => {
       data.map((item: any) => {
-
-
         let imageStringify = JSON.stringify(item.images); // convertimos el array de imagenes a string
-        
-        
         let imageNoGarbage = imageStringify
-        
-        
         .substring(2, imageStringify.length - 2)
-        
-        
         .replaceAll('\\', ' ')
-        
-        
         .replaceAll('""', '"')
-        
-        
         .replaceAll('" "', '"')
-        
-        
         .replaceAll(' ', '');
-        
-        
         try {
-        
-        
         item.images = JSON.parse(imageNoGarbage);
-        
-        
         item.imagesActual = item.images[0];
-        
-        
         } catch (e) {}
-        
-        
         });
-      this.Info = data;
-
+      this.products = data;
     })
   }
 }

@@ -15,8 +15,8 @@ export class ApiService {
     return this.http.get(URL);
   }
 
-  createCharacter(newCharacter: any){
-    return this.http.post("https://api.escuela.js.co/api/v1/users", newCharacter)
+  createCharacter(products: any){
+    return this.http.post("https://api.escuelajs.co/api/v1/products/", products)
   }
 
   editCharacter(){
@@ -25,6 +25,6 @@ export class ApiService {
   }
 
   deleteCharacter(id: number){
-    return this.http.delete(`https://api.escuelajs.co/api/v1/products${id}`)
+    return this.http.delete(`https://api.escuelajs.co/api/v1/products/${id}`)
   }
 }

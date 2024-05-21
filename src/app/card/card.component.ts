@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ApiService } from '../service/api.service';
-import { error } from 'console';
+import { error, info } from 'console';
 import { response } from 'express';
 import { NgIf } from '@angular/common';
 
@@ -15,20 +15,20 @@ export class CardComponent {
   constructor(private readonly apiService: ApiService){}
 
   @Input()
-  people: any;
+  Product: any;
+  ApiService: any;
 
-  delete(people: any) {
-    console.log(this.people)
+  ngOnInit(){console.log(this.Product)}
 
-    this.apiService.editCharacter()
-    // .subscribe((response: any) => { console.log('personaje eliminado con exito: ', response);
-    // });
+  delete() {
+    console.log('Personaje eliminado con exito', this.Product)
+
+    this.apiService.deleteCharacter(this.Product.id)
+    .subscribe((response: any) => { console.log('personaje eliminado con exito: ', response);
+    });
   }
 
-  Edit(name: string){
-    console.log(this.people)
-    this.apiService.editCharacter()
-    // .subscribe((response: any) => { console.log(response);
-    // });
+  Edit(){
+    console.log(this.Product)
   }
 }
