@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "my-app": {
+    "Progra-web": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/my-app",
+            "outputPath": "dist/progra-web",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -25,9 +25,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css", "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": [],
+            "scripts": ["node_modules/jquery/dist/jquery.min.js",
+            "node_modules/@popperjs/core/dist/umd/popper.min.js",
+            "node_modules/bootstrap/dist/js/bootstrap.min.js"], 
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
@@ -62,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "my-app:build:production"
+              "buildTarget": "Progra-web:build:production"
             },
             "development": {
-              "buildTarget": "my-app:build:development"
+              "buildTarget": "Progra-web:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -73,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "my-app:build"
+            "buildTarget": "Progra-web:build"
           }
         },
         "test": {
@@ -98,6 +100,6 @@
     }
   },
   "cli": {
-    "analytics": "09ed6df8-745c-4b49-9ed9-5c7fd19a8c39"
+    "analytics": "44d01c86-aa28-4011-8e59-85c0bc91a70c"
   }
 }

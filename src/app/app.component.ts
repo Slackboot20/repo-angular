@@ -17,29 +17,27 @@ export class AppComponent implements OnInit{
   apiUrl = 'https://api.escuelajs.co/api/v1/products';
   products: any[] = [];
   tittle = 'repo-angular';
-  product: any;
+  product: any = [];
 
   title = new FormControl('');
   images = new FormControl('');
   price = new FormControl('');
   description = new FormControl('');
   categoryid = new FormControl('');
-//people: any;
-  //title(title: any) {
-  //}
 
   constructor(private apiService:ApiService){}
 
   onSummit() {
     const NewProduct = {
-      "title": this.title.value,
-      "price": this.price.value,
-      "description": this.description.value,
-      "image": ['https://placeimg.com/640/480/any'],
-      "categoryid": 1
+      title: this.title.value,
+      price: this.price.value,
+      description: this.description.value,
+      images: [this.images.value],
+      categoryId: 4
     }
-    this.apiService.createCharacter(this.product).subscribe((data: any) => {
-      console.log(data);
+    
+    this.apiService.createCharacter(NewProduct).subscribe((data: any) => {
+      console.log('editado', data);
       this.product.push(data);
     })
   }

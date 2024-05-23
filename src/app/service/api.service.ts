@@ -16,12 +16,11 @@ export class ApiService {
   }
 
   createCharacter(products: any){
-    return this.http.post("https://api.escuelajs.co/api/v1/products/", products)
+    return this.http.post(URL, products)
   }
 
-  editCharacter(){
-    return this.http
-    console.log('actualizado correctamente');
+  editCharacter(id: number, product: any){
+    return this.http.put(`https://api.escuelajs.co/api/v1/products/${id}`, product)
   }
 
   deleteCharacter(id: number){
