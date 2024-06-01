@@ -1,6 +1,6 @@
 <section>
     <p class="nombre">{{Product.title}}</p>
-    <img src="{{Product.images[0]}}" alt="">
+    <img src="{{Product.images}}" alt="">
     <p><span>description: </span>{{Product.description}}</p>
     <p><span>price: </span>{{Product.price}}</p>
     <p>{{Product.categoryid}}</p>
@@ -9,36 +9,36 @@
 </section>
 
 <div *ngIf="modal"  class="modal" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Editar Producto</h4>
-          <button type="button" class="btn-close" aria-label="Close" (click)="closeEditModal()"></button>
-        </div>
-        <div class="modal-body">
-         
-            <div>
-              <label for="title">Título:</label>
-              <input type="text" id="title" [formControl]="title" class="form-control">
-            </div>
-            <div>
-              <label for="price">Precio:</label>
-              <input type="number" id="price" [formControl]="price" class="form-control">
-            </div>
-            <div>
-              <label for="description">Descripción:</label>
-              <input type="text" id="description" [formControl]="description" class="form-control">
-            </div>
-            <div>
-              <label for="images">Imagen</label>
-              <input type="text" id="images" [formControl]="images" class="form-control">
-            </div>
-         
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" (click)="closeEditModal()">Cancelar</button>
-          <button type="button" class="btn btn-primary" (click)="saveChanges()">Guardar Cambios</button> 
-        </div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Editar Producto</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="closeEditModal()"></button>
+      </div>
+      <div class="modal-body">
+       
+          <div>
+            <label for="title">Título:</label>
+            <input type="text" id="title" [formControl]="title" class="form-control">
+          </div>
+          <div>
+            <label for="price">Precio:</label>
+            <input type="number" id="price" [formControl]="price" class="form-control">
+          </div>
+          <div>
+            <label for="description">Descripción:</label>
+            <input type="text" id="description" [formControl]="description" class="form-control">
+          </div>
+          <div>
+            <label for="images">Imagen</label>
+            <input type="text" id="images" [formControl]="images" class="form-control">
+          </div>
+       
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeEditModal()">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="saveChanges()">Guardar Cambios</button> 
       </div>
     </div>
   </div>
+</div>

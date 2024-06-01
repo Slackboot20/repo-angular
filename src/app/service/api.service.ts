@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-const URL = "https://api.escuelajs.co/api/v1/products"
+const URL = "http://localhost:3000/products"
 
 @Injectable({
   providedIn: 'root'
@@ -20,10 +20,10 @@ export class ApiService {
   }
 
   editCharacter(id: number, product: any){
-    return this.http.put(`https://api.escuelajs.co/api/v1/products/${id}`, product)
+    return this.http.put(`http://localhost:3000/products/${id}`, product)
   }
 
   deleteCharacter(id: number){
-    return this.http.delete(`https://api.escuelajs.co/api/v1/products/${id}`)
+    return this.http.delete(`http://localhost:3000/products/${id}`)
   }
 }

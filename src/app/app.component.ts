@@ -14,7 +14,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 })
 
 export class AppComponent implements OnInit{
-  apiUrl = 'https://api.escuelajs.co/api/v1/products';
+  apiUrl = 'http://localhost:3000/products';
   products: any[] = [];
   tittle = 'repo-angular';
   product: any = [];
@@ -44,7 +44,7 @@ export class AppComponent implements OnInit{
 
   ngOnInit(): void{
     this.apiService.getCharacters().subscribe((data:any) => {
-      data.map((item: any) => {
+      /*data.map((item: any) => {
         let imageStringify = JSON.stringify(item.images); // convertimos el array de imagenes a string
         let imageNoGarbage = imageStringify
         .substring(2, imageStringify.length - 2)
@@ -56,7 +56,7 @@ export class AppComponent implements OnInit{
         item.images = JSON.parse(imageNoGarbage);
         item.imagesActual = item.images[0];
         } catch (e) {}
-        });
+        });*/
       this.products = data;
     })
   }
